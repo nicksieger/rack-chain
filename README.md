@@ -13,6 +13,11 @@ allow decomposing the request pipeline into a flat sequence of
 function applications over a request and a response, these kinds of
 cheeky gyrations may be necessary.
 
+## Requirements
+
+Because Rack::Chain relies on fibers for its operation, Ruby 1.9 is
+required.
+
 ## Usage
 
 To use Rack::Chain with existing Rack applications, place the
