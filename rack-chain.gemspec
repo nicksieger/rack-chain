@@ -4,8 +4,8 @@ require File.expand_path('../lib/rack-chain/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Nick Sieger"]
   gem.email         = ["nick@nicksieger.com"]
-  gem.description   = %q{rack-chain builds a Rack application that runs each middleware in its own fiber to minimize stack depth. }
-  gem.summary       = %q{rack-chain uses fibers to minimize stack depth in Rack applications.}
+  gem.description   = %q{Rack::Chain builds a Rack application that runs each middleware in its own fiber to minimize stack depth. }
+  gem.summary       = %q{Rack::Chain uses fibers to minimize stack depth in Rack applications.}
   gem.homepage      = "https://github.com/nicksieger/rack-chain"
 
   gem.files         = `git ls-files`.split($\)

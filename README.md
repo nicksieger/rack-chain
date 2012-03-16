@@ -1,29 +1,25 @@
 # Rack::Chain
 
-TODO: Write a gem description
+Rack::Chain uses fibers to minimize stack depth in Rack applications.
 
-## Installation
+A Rack application assembled with Rack::Chain runs each middleware
+`#call` in a separate fiber, thereby avoiding deep stacks.
 
-Add this line to your application's Gemfile:
+The name "chain" comes from `javax.servlet.FilterChain`, which is the
+equivalent pattern to Rack middleware in the Java Servlet API.
 
-    gem 'rack-chain'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install rack-chain
+Until the Rack API morphs into a before/after pattern which would
+allow decomposing the request pipeline into a flat sequence of
+function applications over a request and a response, these kinds of
+cheeky gyrations may be necessary.
 
 ## Usage
 
-TODO: Write usage instructions here
+To use Rack::Chain with existing Rack applications, place the
+following lines in your `config.ru`:
 
-## Contributing
+```ruby
+require 'rack/chain'
+extend Rack::Chain::Linker
+```
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
