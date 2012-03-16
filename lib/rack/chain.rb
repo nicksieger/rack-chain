@@ -1,6 +1,5 @@
 require 'rack'
 require 'rack/builder'
-require 'fiber'
 
 class Rack::Chain
   attr_reader   :endpoint
